@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Precision<title>
+</head>
+
+<body>
+    <script>
+    
+        function betterPrecision(num, precision) {
+            let precisionNum = num.toPrecision(precision);
+            let index = precisionNum.indexOf('e');
+
+            if(index != -1){
+                let exp = Number(precisionNum.slice(index + 1));
+                if(exp < 5){
+                    console.log(Number(precisionNum).toString());
+                    return Number(precisionNum).toString();
+                }
+
+            }
+            console.log(precisionNum);
+            return precisionNum;
+        }
+        
+        betterPrecision(124, 1);
+        betterPrecision(124, 2);
+        betterPrecision(178, 2);
+        betterPrecision(17000, 1);
+        betterPrecision(17000, 2);
+        betterPrecision(17000, 3);
+        betterPrecision(389520, 4);
+
+    </script>
+</body>
+
+</html>
